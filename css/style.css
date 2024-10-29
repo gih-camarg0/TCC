@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root{
+    --bg: #F7F1E5; /*1*/
+    --two: #f0d9d1; /*2*/
+    --three: #DDB7D1; /*3*/
+    --hover: #DBB2A6; /*4*/
+    --text: #553B3A; /*6*/
+    --seven:#BE8D7F; /*7*/
+    --eight:#be9d94; /*8*/
+    --nine:#DAB2A6; /*9*/
+    --ten:#BD8D7D; /*10*/
+    --border:.1rem solid rgb(61, 39, 19);
+}
+
+*{
+    font-family: "Playfair Display", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+   
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--bg);
+    border-radius: 5rem;
+}
+
+body{
+    background: var(--bg);
+}
+
+.btns{
+    margin-top: 0;
+    display: inline-block;
+    padding: .1rem 1rem;
+    font-size: 1.12rem;
+    color: var(--preto);
+    background: var(--bg);
+    cursor: pointer;
+}
+
+.btns:hover{
+    letter-spacing: .2rem;
+}
+
+/*ABRE HEADER*/
+.header{
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px;
+}
+
+.header .logo{
+    font-size: 1.9rem;
+    color: var(--text);
+}
+
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.4rem;
+    color: var(--text);
+}
+
+.header .navbar a:hover{
+    color: var(--hover);
+    border-bottom: .1rem solid var(--hover);
+}
+
+.header .icons div{
+    font-size: 1.4rem;
+    color: var(--text);
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.header .icons div:hover{
+    color: var(--hover);
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top: 110%;
+    right: 7%;
+    background: #fff;
+    width: 17rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.3rem;
+    color: var(--text);
+    padding: 1rem;
+    text-transform: none;
+}
+
+.header .search-form label{
+    cursor: pointer;
+    margin-right: 1.5rem;
+    color: var(--text);
+}
+
+.header .search-form label:hover{
+    color: var(--hover);
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: calc(100vh - 7.5rem);
+    width: 25rem;
+    background: var(--nine);
+    padding:  0 1.5rem;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5remm;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+     position: absolute;
+     top: 2rem;
+     right: .1rem;
+     font-size: 1.5rem;
+     cursor: pointer;
+     color: var(--text);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color: var(--hover);
+}
+
+.header .cart-items-container .cart-item img{
+    height: 6rem;
+    margin: .05rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 1.12rem;
+    color: var(--text);
+    padding-bottom: .1rem;
+    margin: 0 1rem 0 .1rem;
+}
+
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.2rem;
+    color: var(--text);
+    margin: 0 1rem;
+}
+
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
+}
+
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+/*MEDIA QUERIES*/
+@media (max-width:991px){ /*MEDIA 1*/
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width:768px){  /*MEDIA 2*/
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background: var(--nine);
+        width: 20rem;
+        height: calc(100vh - 22rem);
+    }
+
+    .navbar.active{
+        right: 0;
+    }
+
+    .header .navbar a{
+        color: var(--text);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    }
+
+    .header .search-form{
+        width:90%;
+        right: 2rem;
+    }
+}
+
+@media (max-width:450px){ /*MEDIA 3*/
+
+    html{
+        font-size: 55%;
+    }
+
+}
+/*FECHA HEADER*/
+ 
+main{
+    padding-top: 65px; /* Espaço equivalente à altura do header */
+}
+
+main button{
+    margin-top: 0;
+    display: inline-block;
+    padding: .1rem 1rem;
+    font-size: 1.5rem;
+    color: var(--text);
+    background: var(--ten);
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+/*ABRE FOOTER*/
+footer{
+    width: 100%;
+    color:var(--ten);
+    position:fixed;
+    bottom: 0;
+}
+
+footer .logo{
+    font-size: 2rem;
+    color: var(--ten);
+}
+
+.footer_list .footer_link{
+    text-decoration: none;
+    gap: 7rem;
+}
+
+#footer_content{
+    background-color: var(--text);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 3.5rem;
+}
+
+#footer_contacts{
+    margin-bottom: 0.75rem;
+}
+
+#footer_social_media{
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+#footer_social_media .footer_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    color: #020503;
+    border-radius: 50%;
+    transition: all 0.4s;
+    font-size: 1.25rem;
+}
+
+#footer_social_media .footer_link:hover{
+    opacity: 0.8;
+}
+
+#instagram{
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#facebook{
+    background-color: #4267b3;
+}
+
+#whatsapp{
+    background-color: #25d366;
+}
+
+.footer-list{
+    display: flex;
+    flex-direction: column;
+    gap: 0.70rem;
+    list-style: none;
+    align-items: last baseline;
+}
+
+.footer-list .footer_link{
+    color: var(--ten);
+}
+
+.footer-list .footer_link:hover{
+    color: var(--hover);
+    transition: all 0.4s;
+}
+
+#footer_copyright{
+    display: flex;
+    justify-content: center;
+    background-color: var(--ten);
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+    color: var(--text);
+}
+/*FECHA FOOTER*/

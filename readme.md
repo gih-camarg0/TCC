@@ -1,0 +1,1 @@
+este repositorio foi criado para armazenar informações e codigos de programção do TCC de Giovanna Camargo.
